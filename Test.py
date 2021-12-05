@@ -1,12 +1,9 @@
 import Main
 import time
-import time
 import functools
-import pandas as pd
 from functools import partial
 import timeit
 import numpy as np
-import matplotlib.pyplot as plt
 from matplotlib import pyplot
 from random import randint
 
@@ -45,14 +42,9 @@ def Plot_times(functions, inputs,repeats=3, n_tests=1, file_name=""):
         pyplot.savefig(file_name)
 
 if __name__ == "__main__":
-    data = []
     Number = []
-    with open('Numbers' , 'r') as File :
-        for line in File:
-            line = line.strip()
-            data.append(int(line))
     for _ in range(1000):
         value = randint(0 , 5000)
         Number.append(value)
-    inputs = [Number , Number*2 , Number*4 , Number*6 , Number*8 , Number*10 , Number*15 , Number*30]
+    inputs = [Number , Number*2 , Number*4 , Number*6 , Number*8 , Number*10 , Number*15 , Number*25 , Number*30]
     Plot_times([Main.selection_sort, Main.selection_sort_optimized], inputs, repeats=1)
